@@ -1,8 +1,22 @@
-{% extends 'base.html' %}
+{% extends 'base.html' %} {% block content %}
 
-{% block content %}
+ {% comment %} <ul> {% endcomment %}
+  {% comment %} {% for message in message_list %}  {% endcomment %}
+  {% comment %} here we are iterating over the 
+  message_list and we are displaying the text field of each message in a list
+  item. message_list: in this line message is our model and it is the rule that
+  we shouls add _list after the model name to access the list of objects of that
+  model. {% endcomment %}
+  {% comment %} <li>{{ message.text }}</li> {% endcomment %}
+  {% comment %} {% endfor %} {% endcomment %}
+{% comment %} </ul> {% endcomment %}
 
-    <h1>this is your message</h1>
+<div class="list-group">
+  {% for message in message_list %}
+  <a href="#" class="list-group-item list-group-item-action"
+    >{{message.text}}</a
+  >
+  {%endfor%}
+</div>
 
 {% endblock content %}
-
